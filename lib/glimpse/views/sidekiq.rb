@@ -15,17 +15,19 @@ module Glimpse
         stats.enqueued
       end
 
-      private
-      def stats
-        @stats ||= Sidekiq::Stats.new
-        Rails.logger.debug @stats.processed
-        @stats
+      def results
+        {
+          processed: processed,
+          failed: failed,
+          enqueued: enqueued
+         }
       end
 
-      def setup_subscribers
-        before_request do
-          stats
-        end
+      private
+      def stats
+        @stats ||= ::Sidekiq::Stats.new
+        Rails.logger.debug @stats.processed
+        @stats
       end
 
     end
