@@ -18,8 +18,16 @@ module Glimpse
       private
       def stats
         @stats ||= Sidekiq::Stats.new
+        Rails.logger.debug @stats.processed
         @stats
       end
+
+      def setup_subscribers
+        before_request do
+          stats
+        end
+      end
+
     end
   end
 end
