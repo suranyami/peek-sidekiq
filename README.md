@@ -4,8 +4,9 @@ Provide a glimpse into the Sidekiq calls made within your Rails application.
 
 Things this glimpse view provides:
 
-- Total number of Sidekiq commands called during the request
-- The duration of the calls made during the request
+- Processed jobs
+- Failed jobs
+- Enqueued jobs
 
 ## Installation
 
