@@ -4,9 +4,8 @@ Provide a peek into the Sidekiq calls made within your Rails application.
 
 Things this peek view provides:
 
-- Processed jobs
-- Failed jobs
-- Enqueued jobs
+- Duration spent in Sidekiq calls
+- Number of calls this page created
 
 ## Installation
 
@@ -50,10 +49,10 @@ Build the gem:
 
 Push to rubygems.org:
 
-    gem push peek-sidekiq-1.0.1.gem
+    gem push peek-sidekiq-1.0.2.gem
 
 ## Testing the gem locally
 
-    gem install peek-sidekiq-1.0.1.gem
+    gem install peek-sidekiq-1.0.2.gem
 
 
