@@ -1,8 +1,8 @@
-# Glimpse::Sidekiq
+# Peek::Sidekiq
 
-Provide a glimpse into the Sidekiq calls made within your Rails application.
+Provide a peek into the Sidekiq calls made within your Rails application.
 
-Things this glimpse view provides:
+Things this peek view provides:
 
 - Processed jobs
 - Failed jobs
@@ -12,7 +12,7 @@ Things this glimpse view provides:
 
 Add this line to your application's Gemfile:
 
-    gem 'glimpse-sidekiq'
+    gem 'peek-sidekiq'
 
 And then execute:
 
@@ -20,14 +20,14 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install glimpse-sidekiq
+    $ gem install peek-sidekiq
 
 ## Usage
 
-Add the following to your `config/initializers/glimpse.rb`:
+Add the following to your `config/initializers/peek.rb`:
 
 ```ruby
-Glimpse.into Glimpse::Views::Sidekiq
+Peek.into Peek::Views::Sidekiq
 ```
 
 ## Contributing

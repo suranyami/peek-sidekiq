@@ -1,6 +1,6 @@
 require 'sidekiq'
 
-module Glimpse
+module Peek
   module Views
     class Sidekiq < View
       def processed
