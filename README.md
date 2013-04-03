@@ -41,13 +41,14 @@ Peek.into Peek::Views::Sidekiq
 
 ## Building and deploying gem
 
- * Update the version number in `lib/peek/sidekiq/version.rb`
- * Update `CHANGELOG.md`
- * Build the gem:
+- Update the version number in `lib/peek/sidekiq/version.rb`
+- Update `CHANGELOG.md`
+
+Build the gem:
 
     gem build peek-sidekiq.gemspec
 
- * Push to rubygems.org:
+Push to rubygems.org:
 
     gem push peek-sidekiq-1.0.1.gem
 
