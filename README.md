@@ -49,10 +49,10 @@ Build the gem:
 
 Push to rubygems.org:
 
-    gem push peek-sidekiq-1.0.2.gem
+    gem push peek-sidekiq-1.0.3.gem
 
 ## Testing the gem locally
 
-    gem install peek-sidekiq-1.0.2.gem
+    gem install peek-sidekiq-1.0.3.gem
 
 
