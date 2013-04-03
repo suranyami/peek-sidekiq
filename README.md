@@ -37,3 +37,22 @@ Peek.into Peek::Views::Sidekiq
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## Building and deploying gem
+
+ * Update the version number in `lib/peek/sidekiq/version.rb`
+ * Update `CHANGELOG.md`
+ * Build the gem:
+
+    gem build peek-sidekiq.gemspec
+
+ * Push to rubygems.org:
+
+    gem push peek-sidekiq-1.0.1.gem
+
+## Testing the gem locally
+
+    gem install peek-sidekiq-1.0.1.gem
+
+
