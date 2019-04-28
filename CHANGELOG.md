@@ -1,3 +1,7 @@
+# 1.0.4
+
+Merged changes to work with Rails 5 from issue #3 by @8398a7
+
 # 1.0.3
 
 - Fixed incorrect placement of the instrumented methods in the class.
