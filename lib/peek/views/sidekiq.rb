@@ -1,28 +1,32 @@
 require 'sidekiq'
 require 'atomic'
 
+module Peek
+  module SidekiqInstrumented
+    def push(*args)
+      start = Time.now
+      super(*args)
+    ensure
+      duration = (Time.now - start)
+      ::Sidekiq::Client.query_time.update { |value| value + duration }
+      ::Sidekiq::Client.query_count.update { |value| value + 1 }
+    end
+
+    def push_bulk(*args)
+      start = Time.now
+      super(*args)
+    ensure
+      duration = (Time.now - start)
+      ::Sidekiq::Client.query_time.update { |value| value + duration }
+      ::Sidekiq::Client.query_count.update { |value| value + 1 }
+    end
+  end
+end
+
 class Sidekiq::Client
+  prepend Peek::SidekiqInstrumented
   class << self
     attr_accessor :query_time, :query_count
-
-    def push_with_timing(*args)
-      start = Time.now
-      push_without_timing(*args)
-    ensure
-      duration = (Time.now - start)
-      @query_time.update { |value| value + duration }
-      @query_count.update { |value| value + 1 }
-    end
-    alias_method_chain :push, :timing
-
-    def push_bulk_with_timing(*args)
-      start = Time.now
-      push_bulk_without_timing(*args)
-    ensure
-      duration = (Time.now - start)
-      @query_time.update { |value| value + duration }
-      @query_count.update { |value| value + 1 }
-    end
   end
 
   self.query_count = Atomic.new(0)
